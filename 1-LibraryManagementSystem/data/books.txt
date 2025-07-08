@@ -1,0 +1,50 @@
+1|Class 9th Science|NCERT|Arihant|50
+2|Class 10th Mathematics|NCERT|Lakhmir Singh|60
+3|Class 8th Social Science|NCERT|S. Chand|45
+4|Class 7th English Grammar|CBSE|Oswaal|30
+5|Class 6th Computer Science|ICSE|Frank Brothers|25
+6|Class 9th Physics|NCERT|Pradeep Publications|55
+7|Class 10th Chemistry|NCERT|Modern Publishers|65
+8|Class 11th Biology|CBSE|Trueman's|70
+9|Class 12th History|NCERT|Disha Publications|75
+10|Class 8th Hindi Vyakaran|State Board|Evergreen Publications|40
+11|Class 5th Environmental Studies|NCERT|Full Marks|35
+12|Class 9th Economics|CBSE|APC Books|52
+13|Class 10th Political Science|NCERT|VK Global Publications|58
+14|Class 11th English Literature|CBSE|Oxford University Press|62
+15|Class 12th Computer Science (Python)|CBSE|Sumita Arora|80
+16|Class 7th General Knowledge|Various|Collins|28
+17|Class 9th Geography|NCERT|Goyal Brothers Prakashan|48
+18|Class 10th Sanskrit|CBSE|Vidya Prakashan Mandir|50
+19|Class 11th Accountancy|CBSE|TS Grewal|72
+20|Class 12th Business Studies|CBSE|Subhash Dey|78
+21|Class 6th Mathematics Workbook|NCERT|Pearson|32
+22|Class 8th Science Lab Manual|CBSE|New Age International|42
+23|Class 9th English Communicative|CBSE|Macmillan Education|53
+24|Class 10th Information Technology|CBSE|Kips Publishing World|57
+25|Class 11th Physical Education|CBSE|Vishvas Publications|68
+26|Class 12th Entrepreneurship|CBSE|Ramesh Publishing House|74
+27|Class 7th Art & Craft Book|Self-Published|Creative Kids|20
+28|Class 9th Home Science|CBSE|Dhanpat Rai & Co.|47
+29|Class 10th Mathematics (Advanced)|CBSE|RD Sharma|85
+30|Class 11th Chemistry (Organic)|CBSE|O.P. Tandon|90
+31|Class 12th Physics (Electrodynamics)|CBSE|H.C. Verma|95
+32|Class 8th French Language|NCERT|Cambridge University Press|44
+33|Class 6th Music Theory|Private Publisher|Bhatia Book Depot|27
+34|Class 9th Biology Practical|CBSE|Laxmi Publications|49
+35|Class 10th History (World History)|NCERT|Spectrum Books|63
+36|Class 11th Economics (Microeconomics)|CBSE|TR Jain & VK Ohri|67
+37|Class 12th Sociology|NCERT|HarperCollins|71
+38|Class 5th Moral Science|Private Publisher|Saraswati House|33
+39|Class 9th Computer Applications|ICSE|APC Publications|54
+40|Class 10th Environmental Science|CBSE|Arya Publishing Company|56
+41|Class 11th Psychology|NCERT|Sage Publications|69
+42|Class 12th Fine Arts|CBSE|Manjul Publishing House|76
+43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|22
+44|Class 9th Legal Studies|CBSE|Wolters Kluwer|51
+45|Class 10th Disaster Management|NCERT|National Book Trust|59
+46|Class 11th Political Science (Indian Constitution)|NCERT|Oxford India|66
+47|Class 12th Mathematics (Calculus)|CBSE|ML Aggarwal|88
+48|Class 8th Geography (Physical)|NCERT|Dorling Kindersley|46
+49|Class 6th General Science Riddles|Private Publisher|Fun Learn Series|29
+50|Class 9th Artificial Intelligence|CBSE|Candid Publications|61
