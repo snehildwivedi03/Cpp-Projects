@@ -3,6 +3,7 @@
 #include<string>
  void recordIssuedBooK(const std::string& studentId, int bookID );
  void viewIssuedBooks(const std::string& studentId);
+ void removeIssueRecord(const std::string& studentId, int bookID);
 
 
 

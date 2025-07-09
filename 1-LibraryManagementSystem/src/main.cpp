@@ -95,7 +95,8 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 cout << "Enter Book ID to return: ";
                 cin >> id;
                 lib.returnBook(id);
-                //Removing the record from issued books (future improvement)
+                //Removing the record from issued books 
+                removeIssueRecord(studentID, id);
                 break;
             }
             case 3:

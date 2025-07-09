@@ -3,6 +3,7 @@
 #include<iostream>
 #include<sstream>
 #include<ctime>
+#include <vector>
 
 void recordIssuedBooK(const std::string& studentId, int bookID) {
 std::ofstream file("data/issued_Books.txt",std::ios::app);
@@ -48,3 +49,39 @@ if(!found) {
   std::cout << "❌ No books issued to student ID: " << studentId << ".\n";
 }
 }
+
+//removeIssuedBook
+void removeIssuedRecord(const std::string& studentID, int bookID) {
+    std::ifstream inFile("data/issued_books.txt");
+    if (!inFile) {
+        std::cout << "❌ Failed to open issued_books.txt for reading.\n";
+        return;
+    }
+
+    std::vector<std::string> lines;
+    std::string line;
+
+    // Keep only the lines that are NOT the one we want to remove
+    while (std::getline(inFile, line)) {
+        std::stringstream ss(line);
+        std::string sid, bid, date;
+        std::getline(ss, sid, ',');
+        std::getline(ss, bid, ',');
+        std::getline(ss, date, ',');
+
+        if (!(sid == studentID && std::to_string(bookID) == bid)) {
+            lines.push_back(line);
+        }
+    }
+    inFile.close();
+
+    // Rewrite the file with remaining records
+    std::ofstream outFile("data/issued_books.txt");
+    for (const auto& l : lines) {
+        outFile << l << "\n";
+    }
+    outFile.close();
+
+    std::cout << "🧹 Issued record for Book ID " << bookID << " removed for Student ID " << studentID << ".\n";
+}
+
