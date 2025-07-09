@@ -8,6 +8,9 @@ CXXFLAGS = -Wall -std=c++17 -Iinclude
 SRC = src/Book.cpp src/Library.cpp src/Student.cpp src/main.cpp
 TARGET = build/libraryApp
 
+SRC = src/Book.cpp src/Library.cpp src/Student.cpp src/Utils.cpp src/main.cpp
+
+
 # Default target
 all: $(TARGET)
 

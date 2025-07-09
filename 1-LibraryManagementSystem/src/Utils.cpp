@@ -51,7 +51,7 @@ if(!found) {
 }
 
 //removeIssuedBook
-void removeIssuedRecord(const std::string& studentID, int bookID) {
+void removeIssueRecord(const std::string& studentID, int bookID) {
     std::ifstream inFile("data/issued_books.txt");
     if (!inFile) {
         std::cout << "❌ Failed to open issued_books.txt for reading.\n";
