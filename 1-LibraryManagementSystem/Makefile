@@ -8,6 +8,7 @@ CXXFLAGS = -Wall -std=c++17 -Iinclude
 SRC = src/Book.cpp src/Library.cpp src/Student.cpp src/main.cpp
 TARGET = build/libraryApp
 
+#Adding Utils.cpp to the source files
 SRC = src/Book.cpp src/Library.cpp src/Student.cpp src/Utils.cpp src/main.cpp
 
 
