@@ -87,6 +87,7 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 cin >> id;
                 // 🔜 We'll connect this to student-issued data file
                 lib.issueBook(id);  // Replace later with student logic
+                recordIssuedBooK(studentID,id);
                 break;
             }
             case 2: {
@@ -94,10 +95,11 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 cout << "Enter Book ID to return: ";
                 cin >> id;
                 lib.returnBook(id);
+                //Removing the record from issued books (future improvement)
                 break;
             }
             case 3:
-                cout << "🔍 Feature coming: View books issued to Student ID: " << studentID << "\n";
+                viewIssuedBooks(studentID);
                 break;
             case 0:
                 cout << "👋 Student logged out.\n";
