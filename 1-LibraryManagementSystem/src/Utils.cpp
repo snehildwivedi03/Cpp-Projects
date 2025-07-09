@@ -17,7 +17,7 @@ std::ofstream file("data/issued_Books.txt",std::ios::app);
 
 time_t now = time(0);
 tm* ltm = localtime(&now);
-char date[11];
+char date[16];
 snprintf(date, sizeof(date), "%04d-%02d-%02d",1900+ltm->tm_year,1+ltm->tm_mon,ltm->tm_mday);
 
 file<<studentId<<","<<bookID<<","<<date<<"\n";
