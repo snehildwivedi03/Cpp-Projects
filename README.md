@@ -1,6 +1,6 @@
 # 💡 C++ Real World Projects Showcase
 
-Welcome to the **C++ Projects Showcase**—a personal endeavor to explore and demonstrate the incredible capabilities of C++ through real-world applications and problem-solving projects.
+Welcome to the **C++ Real World Projects Showcase**—a personal endeavor to explore and demonstrate the incredible capabilities of C++ through real-world applications and problem-solving projects.
 
 ## 🎯 Objective
 
