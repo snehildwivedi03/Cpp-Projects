@@ -1,6 +1,6 @@
-1|Class 9th Science|NCERT|Arihant|50
-2|Class 10th Mathematics|NCERT|Lakhmir Singh|60
-3|Class 8th Social Science|NCERT|S. Chand|45
+1|Class 9th Science|NCERT|Arihant|49
+2|Class 10th Mathematics|NCERT|Lakhmir Singh|59
+3|Class 8th Social Science|NCERT|S. Chand|44
 4|Class 7th English Grammar|CBSE|Oswaal|30
 5|Class 6th Computer Science|ICSE|Frank Brothers|25
 6|Class 9th Physics|NCERT|Pradeep Publications|55
@@ -40,7 +40,7 @@
 40|Class 10th Environmental Science|CBSE|Arya Publishing Company|56
 41|Class 11th Psychology|NCERT|Sage Publications|69
 42|Class 12th Fine Arts|CBSE|Manjul Publishing House|76
-43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|22
+43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|21
 44|Class 9th Legal Studies|CBSE|Wolters Kluwer|51
 45|Class 10th Disaster Management|NCERT|National Book Trust|59
 46|Class 11th Political Science (Indian Constitution)|NCERT|Oxford India|66

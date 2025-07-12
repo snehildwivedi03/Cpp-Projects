@@ -5,7 +5,7 @@
 #include<ctime>
 #include <vector>
 
-void recordIssuedBooK(const std::string& studentId, int bookID) {
+void recordIssueBook(const std::string& studentId, int bookID) {
 std::ofstream file("data/issued_Books.txt",std::ios::app);
     if (!file) {
   std::cout << "❌ Failed to open issued_books.txt for writing.\n";
@@ -17,7 +17,7 @@ std::ofstream file("data/issued_Books.txt",std::ios::app);
 
 time_t now = time(0);
 tm* ltm = localtime(&now);
-char date[16];
+char date[11];
 snprintf(date, sizeof(date), "%04d-%02d-%02d",1900+ltm->tm_year,1+ltm->tm_mon,ltm->tm_mday);
 
 file<<studentId<<","<<bookID<<","<<date<<"\n";
@@ -51,7 +51,7 @@ if(!found) {
 }
 
 //removeIssuedBook
-void removeIssuedRecord(const std::string& studentID, int bookID) {
+void removeIssueRecord(const std::string& studentID, int bookID) {
     std::ifstream inFile("data/issued_books.txt");
     if (!inFile) {
         std::cout << "❌ Failed to open issued_books.txt for reading.\n";
@@ -85,3 +85,14 @@ void removeIssuedRecord(const std::string& studentID, int bookID) {
     std::cout << "🧹 Issued record for Book ID " << bookID << " removed for Student ID " << studentID << ".\n";
 }
 
+void returnBookForStudent(const std::string& studentID, Library& lib) {
+    int bookID;
+    std::cout << "Enter Book ID to return: ";
+    std::cin >> bookID;
+
+    // Increase quantity in library
+    lib.returnBook(bookID);
+
+    // Remove issued record 
+    removeIssueRecord(studentID, bookID);
+}

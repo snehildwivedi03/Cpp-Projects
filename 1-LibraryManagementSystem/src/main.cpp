@@ -87,7 +87,7 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 cin >> id;
                 // 🔜 We'll connect this to student-issued data file
                 lib.issueBook(id);  // Replace later with student logic
-                recordIssuedBooK(studentID,id);
+                recordIssueBook(studentID,id);
                 break;
             }
             case 2: {
@@ -96,7 +96,7 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 cin >> id;
                 lib.returnBook(id);
                 //Removing the record from issued books 
-                removeIssueRecord(studentID, id);
+              returnBookForStudent(studentID, lib);
                 break;
             }
             case 3:

@@ -1,4 +1,6 @@
 #include "../include/Student.h"
+#include "../include/Utils.h"
+#include "../include/Library.h"
 #include<sstream>
 #include<fstream>
 
@@ -81,3 +83,4 @@ void Student::registerStudent(){
   file.close();
   std::cout << "✅ Student registered successfully!\n";
 }
+
