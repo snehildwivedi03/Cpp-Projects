@@ -93,6 +93,6 @@ void returnBookForStudent(const std::string& studentID, Library& lib) {
     // Increase quantity in library
     lib.returnBook(bookID);
 
-    // Remove issued record 
+    // Remove issued record from txt file
     removeIssueRecord(studentID, bookID);
 }
