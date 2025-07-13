@@ -28,9 +28,17 @@ void showAdminMenu(Library& lib) {
                 lib.addBook(b);
                 break;
             }
-            case 2:
-                lib.displayBooks();
-                break;
+           case 2: {
+    string adminPass;
+    cout << "Enter Admin Password: ";
+    cin >> adminPass;
+    if (adminPass == "admin123") {
+        showAdminMenu(lib);  // Now from Admin.cpp
+    } else {
+        cout << "❌ Incorrect Admin password.\n";
+    }
+    break;
+}
             case 3: {
                 int id;
                 cout << "Enter Book ID to search: ";
