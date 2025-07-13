@@ -85,16 +85,20 @@ int main() {
                 break;
             }
             case 2: {
-                string adminPass;
-                cout << "Enter Admin Password: ";
-                cin >> adminPass;
-                if (adminPass == "admin123") {
-                    showAdminMenu(lib);
-                } else {
-                    cout << "❌ Incorrect Admin password.\n";
-                }
-                break;
-            }
+    string id, password;
+    cout << "Admin ID: ";
+    cin >> id;
+    cout << "Password: ";
+    cin >> password;
+
+    if (authenticateAdmin(id, password)) {
+        cout << "✅ Admin login successful.\n";
+        showAdminMenu(lib);
+    } else {
+        cout << "❌ Invalid Admin ID or Password.\n";
+    }
+    break;
+}
             case 3: {
                 Student s;
                 s.registerStudent();

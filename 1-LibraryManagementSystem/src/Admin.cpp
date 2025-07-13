@@ -9,9 +9,9 @@ using namespace std;
 
 // Show all issued books with due dates
 void viewIssuedRecords() {
-    ifstream file("data/issued_books.txt");
+    ifstream file("data/issued_Books.txt");
     if (!file) {
-        cout << "❌ Failed to open issued_books.txt\n";
+        cout << "❌ Failed to open issued_Books.txt\n";
         return;
     }
 
