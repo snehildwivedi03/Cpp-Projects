@@ -1,50 +1,50 @@
-1|Class 9th Science|NCERT|Arihant|51
-2|Class 10th Mathematics|NCERT|Lakhmir Singh|60
-3|Class 8th Social Science|NCERT|S. Chand|45
-4|Class 7th English Grammar|CBSE|Oswaal|30
-5|Class 6th Computer Science|ICSE|Frank Brothers|25
-6|Class 9th Physics|NCERT|Pradeep Publications|55
-7|Class 10th Chemistry|NCERT|Modern Publishers|65
-8|Class 11th Biology|CBSE|Trueman's|71
-9|Class 12th History|NCERT|Disha Publications|75
-10|Class 8th Hindi Vyakaran|State Board|Evergreen Publications|40
-11|Class 5th Environmental Studies|NCERT|Full Marks|35
-12|Class 9th Economics|CBSE|APC Books|52
-13|Class 10th Political Science|NCERT|VK Global Publications|58
-14|Class 11th English Literature|CBSE|Oxford University Press|62
-15|Class 12th Computer Science (Python)|CBSE|Sumita Arora|80
-16|Class 7th General Knowledge|Various|Collins|28
-17|Class 9th Geography|NCERT|Goyal Brothers Prakashan|48
-18|Class 10th Sanskrit|CBSE|Vidya Prakashan Mandir|50
-19|Class 11th Accountancy|CBSE|TS Grewal|72
-20|Class 12th Business Studies|CBSE|Subhash Dey|78
-21|Class 6th Mathematics Workbook|NCERT|Pearson|32
-22|Class 8th Science Lab Manual|CBSE|New Age International|42
-23|Class 9th English Communicative|CBSE|Macmillan Education|53
-24|Class 10th Information Technology|CBSE|Kips Publishing World|57
-25|Class 11th Physical Education|CBSE|Vishvas Publications|68
-26|Class 12th Entrepreneurship|CBSE|Ramesh Publishing House|74
-27|Class 7th Art & Craft Book|Self-Published|Creative Kids|20
-28|Class 9th Home Science|CBSE|Dhanpat Rai & Co.|47
-29|Class 10th Mathematics (Advanced)|CBSE|RD Sharma|85
-30|Class 11th Chemistry (Organic)|CBSE|O.P. Tandon|90
-31|Class 12th Physics (Electrodynamics)|CBSE|H.C. Verma|95
-32|Class 8th French Language|NCERT|Cambridge University Press|44
-33|Class 6th Music Theory|Private Publisher|Bhatia Book Depot|27
-34|Class 9th Biology Practical|CBSE|Laxmi Publications|49
-35|Class 10th History (World History)|NCERT|Spectrum Books|63
-36|Class 11th Economics (Microeconomics)|CBSE|TR Jain & VK Ohri|67
-37|Class 12th Sociology|NCERT|HarperCollins|71
-38|Class 5th Moral Science|Private Publisher|Saraswati House|33
-39|Class 9th Computer Applications|ICSE|APC Publications|54
-40|Class 10th Environmental Science|CBSE|Arya Publishing Company|56
-41|Class 11th Psychology|NCERT|Sage Publications|69
-42|Class 12th Fine Arts|CBSE|Manjul Publishing House|76
-43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|22
-44|Class 9th Legal Studies|CBSE|Wolters Kluwer|51
-45|Class 10th Disaster Management|NCERT|National Book Trust|59
-46|Class 11th Political Science (Indian Constitution)|NCERT|Oxford India|66
-47|Class 12th Mathematics (Calculus)|CBSE|ML Aggarwal|88
-48|Class 8th Geography (Physical)|NCERT|Dorling Kindersley|46
-49|Class 6th General Science Riddles|Private Publisher|Fun Learn Series|29
-50|Class 9th Artificial Intelligence|CBSE|Candid Publications|62
+1|The Great Gatsby|Scribner|F. Scott Fitzgerald|250
+2|To Kill a Mockingbird|J.B. Lippincott & Co.|Harper Lee|320
+3|1984|Secker & Warburg|George Orwell|328
+4|Pride and Prejudice|T. Egerton, Whitehall|Jane Austen|279
+5|The Catcher in the Rye|Little, Brown and Company|J.D. Salinger|224
+6|The Hobbit|George Allen & Unwin|J.R.R. Tolkien|310
+7|Lord of the Flies|Faber and Faber|William Golding|224
+8|Animal Farm|Secker & Warburg|George Orwell|112
+9|The Chronicles of Narnia: The Lion, the Witch and the Wardrobe|Geoffrey Bles|C.S. Lewis|206
+10|Brave New World|Chatto & Windus|Aldous Huxley|268
+11|The Lord of the Rings|George Allen & Unwin|J.R.R. Tolkien|1178
+12|Jane Eyre|Smith, Elder & Co.|Charlotte Brontë|500
+13|Wuthering Heights|Thomas Cautley Newby|Emily Brontë|350
+14|Moby Dick|Harper & Brothers|Herman Melville|585
+15|Frankenstein|Lackington, Hughes, Harding, Mavor & Jones|Mary Shelley|280
+16|Don Quixote|Francisco de Robles|Miguel de Cervantes|863
+17|War and Peace|The Russian Messenger|Leo Tolstoy|1225
+18|One Hundred Years of Solitude|Editorial Sudamericana|Gabriel García Márquez|417
+19|The Odyssey|Various publishers|Homer|448
+20|Crime and Punishment|The Russian Messenger|Fyodor Dostoevsky|551
+21|The Alchemist|Editora Rocco|Paulo Coelho|163
+22|The Hitchhiker's Guide to the Galaxy|Pan Books|Douglas Adams|193
+23|The Picture of Dorian Gray|Ward, Lock and Company|Oscar Wilde|254
+24|Dracula|Archibald Constable and Company|Bram Stoker|418
+25|Alice's Adventures in Wonderland|Macmillan Publishers|Lewis Carroll|118
+26|Les Misérables|A. Lacroix, Verboeckhoven et Cie.|Victor Hugo|1463
+27|The Grapes of Wrath|The Viking Press|John Steinbeck|464
+28|Gone with the Wind|Macmillan Publishers|Margaret Mitchell|1037
+29|Great Expectations|Chapman & Hall|Charles Dickens|505
+30|A Tale of Two Cities|Chapman & Hall|Charles Dickens|448
+31|The Scarlet Letter|Ticknor and Fields|Nathaniel Hawthorne|253
+32|The Secret Garden|Frederick A. Stokes Company|Frances Hodgson Burnett|375
+33|The Wind in the Willows|Methuen & Co.|Kenneth Grahame|259
+34|Treasure Island|Cassell & Company|Robert Louis Stevenson|208
+35|Adventures of Huckleberry Finn|Chatto & Windus|Mark Twain|366
+36|Little Women|Roberts Brothers|Louisa May Alcott|449
+37|Anne of Green Gables|L.C. Page & Co.|L.M. Montgomery|320
+38|Through the Looking-Glass|Macmillan Publishers|Lewis Carroll|224
+39|Around the World in Eighty Days|Pierre-Jules Hetzel|Jules Verne|288
+40|Twenty Thousand Leagues Under the Seas|Pierre-Jules Hetzel|Jules Verne|448
+41|The Three Musketeers|Baudry|Alexandre Dumas|672
+42|Count of Monte Cristo|Pétion|Alexandre Dumas|1200
+43|The Call of the Wild|Macmillan Publishers|Jack London|128
+44|White Fang|Macmillan Publishers|Jack London|256
+45|Gulliver's Travels|Benjamin Motte|Jonathan Swift|304
+46|Robinson Crusoe|William Taylor|Daniel Defoe|320
+47|Kidnapped|Cassell & Company|Robert Louis Stevenson|288
+48|A Wrinkle in Time|Farrar, Straus and Giroux|Madeleine L'Engle|211
+49|The Outsiders|The Viking Press|S.E. Hinton|192
+50|Charlotte's Web|Harper & Brothers|E.B. White|192
