@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// =================== Admin Menu ===================
 void showAdminMenu(Library& lib) {
     int choice;
     do {
@@ -48,7 +49,7 @@ void showAdminMenu(Library& lib) {
                 int id;
                 cout << "Enter Book ID to issue: ";
                 cin >> id;
-                lib.issueBook(id); // Will later connect to student
+                lib.issueBook(id);
                 break;
             }
             case 6: {
@@ -69,6 +70,7 @@ void showAdminMenu(Library& lib) {
     } while (choice != 0);
 }
 
+// =================== Student Menu ===================
 void showStudentMenu(const string& studentID, Library& lib) {
     int choice;
     do {
@@ -85,18 +87,15 @@ void showStudentMenu(const string& studentID, Library& lib) {
                 int id;
                 cout << "Enter Book ID to issue: ";
                 cin >> id;
-                // 🔜 We'll connect this to student-issued data file
-                lib.issueBook(id);  // Replace later with student logic
-                recordIssueBook(studentID,id);
+                lib.issueBook(id);
+                recordIssueBook(studentID, id);
                 break;
             }
             case 2: {
                 int id;
                 cout << "Enter Book ID to return: ";
                 cin >> id;
-                lib.returnBook(id);
-                //Removing the record from issued books 
-              returnBookForStudent(studentID, lib);
+                returnBookForStudent(studentID, id, lib);
                 break;
             }
             case 3:
@@ -111,6 +110,7 @@ void showStudentMenu(const string& studentID, Library& lib) {
     } while (choice != 0);
 }
 
+// =================== Main ===================
 int main() {
     Library lib;
     lib.loadBooksFromFile();
@@ -120,8 +120,7 @@ int main() {
         cout << "\n📚 ======= Library System Main Menu =======\n";
         cout << "1. Student Login\n";
         cout << "2. Admin Login\n";
-        cout << "3. Register New Student\n"; // inside main menu
-
+        cout << "3. Register New Student\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -145,7 +144,6 @@ int main() {
                 }
                 break;
             }
-
             case 2: {
                 string adminPass;
                 cout << "Enter Admin Password: ";
@@ -158,12 +156,10 @@ int main() {
                 break;
             }
             case 3: {
-    Student s;
-    s.registerStudent();
-    break;
-}
-
-
+                Student s;
+                s.registerStudent();
+                break;
+            }
             default:
                 cout << "❌ Invalid choice. Try again.\n";
         }

@@ -1,11 +1,11 @@
-1|Class 9th Science|NCERT|Arihant|49
-2|Class 10th Mathematics|NCERT|Lakhmir Singh|59
-3|Class 8th Social Science|NCERT|S. Chand|44
+1|Class 9th Science|NCERT|Arihant|51
+2|Class 10th Mathematics|NCERT|Lakhmir Singh|60
+3|Class 8th Social Science|NCERT|S. Chand|45
 4|Class 7th English Grammar|CBSE|Oswaal|30
 5|Class 6th Computer Science|ICSE|Frank Brothers|25
 6|Class 9th Physics|NCERT|Pradeep Publications|55
 7|Class 10th Chemistry|NCERT|Modern Publishers|65
-8|Class 11th Biology|CBSE|Trueman's|70
+8|Class 11th Biology|CBSE|Trueman's|71
 9|Class 12th History|NCERT|Disha Publications|75
 10|Class 8th Hindi Vyakaran|State Board|Evergreen Publications|40
 11|Class 5th Environmental Studies|NCERT|Full Marks|35
@@ -40,11 +40,11 @@
 40|Class 10th Environmental Science|CBSE|Arya Publishing Company|56
 41|Class 11th Psychology|NCERT|Sage Publications|69
 42|Class 12th Fine Arts|CBSE|Manjul Publishing House|76
-43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|21
+43|Class 7th Yoga & Wellness|Self-Published|Mind Body Soul|22
 44|Class 9th Legal Studies|CBSE|Wolters Kluwer|51
 45|Class 10th Disaster Management|NCERT|National Book Trust|59
 46|Class 11th Political Science (Indian Constitution)|NCERT|Oxford India|66
 47|Class 12th Mathematics (Calculus)|CBSE|ML Aggarwal|88
 48|Class 8th Geography (Physical)|NCERT|Dorling Kindersley|46
 49|Class 6th General Science Riddles|Private Publisher|Fun Learn Series|29
-50|Class 9th Artificial Intelligence|CBSE|Candid Publications|61
+50|Class 9th Artificial Intelligence|CBSE|Candid Publications|62
