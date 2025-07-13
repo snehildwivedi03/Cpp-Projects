@@ -121,3 +121,37 @@ void showAdminMenu(Library& lib) {
 
     } while (choice != 0);
 }
+
+void registerNewAdmin() {
+    string id, password;
+    cout << "\n🆕 Register New Admin\n";
+    cout << "Enter new Admin ID: ";
+    cin >> id;
+    cout << "Enter Password: ";
+    cin >> password;
+
+    // Check if admin ID already exists
+    ifstream checkFile("data/admins.txt");
+    string line;
+    while (getline(checkFile, line)) {
+        stringstream ss(line);
+        string existingID;
+        getline(ss, existingID, ',');
+        if (existingID == id) {
+            cout << "❌ Admin ID already exists. Choose another.\n";
+            return;
+        }
+    }
+    checkFile.close();
+
+    // Append new admin to file
+    ofstream file("data/admins.txt", ios::app);
+    if (!file) {
+        cout << "❌ Could not open admins.txt for writing.\n";
+        return;
+    }
+
+    file << id << "," << password << "\n";
+    file.close();
+    cout << "✅ Admin registered successfully!\n";
+}

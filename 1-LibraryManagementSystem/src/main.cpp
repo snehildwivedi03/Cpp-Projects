@@ -129,6 +129,7 @@ int main() {
         cout << "1. Student Login\n";
         cout << "2. Admin Login\n";
         cout << "3. Register New Student\n";
+        cout<<"4. Register New Admin\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
