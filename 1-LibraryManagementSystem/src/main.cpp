@@ -1,82 +1,13 @@
 #include "../include/Book.h"
 #include "../include/Library.h"
 #include "../include/Student.h"  
-#include "../include/Utils.h"   
+#include "../include/Utils.h"  
+#include "../include/Admin.h"  
+
 #include <iostream>
 
 using namespace std;
 
-// =================== Admin Menu ===================
-void showAdminMenu(Library& lib) {
-    int choice;
-    do {
-        cout << "\n👨‍💼 ======= Admin Menu =======\n";
-        cout << "1. Add Book\n";
-        cout << "2. Display All Books\n";
-        cout << "3. Search Book by ID\n";
-        cout << "4. Delete Book\n";
-        cout << "5. Issue Book (admin)\n";
-        cout << "6. Return Book (admin)\n";
-        cout << "0. Logout & Save\n";
-        cout << "Choose an option: ";
-        cin >> choice;
-
-        switch (choice) {
-            case 1: {
-                Book b;
-                b.inputBook();
-                lib.addBook(b);
-                break;
-            }
-           case 2: {
-    string adminPass;
-    cout << "Enter Admin Password: ";
-    cin >> adminPass;
-    if (adminPass == "admin123") {
-        showAdminMenu(lib);  // Now from Admin.cpp
-    } else {
-        cout << "❌ Incorrect Admin password.\n";
-    }
-    break;
-}
-            case 3: {
-                int id;
-                cout << "Enter Book ID to search: ";
-                cin >> id;
-                lib.searchBookById(id);
-                break;
-            }
-            case 4: {
-                int id;
-                cout << "Enter Book ID to delete: ";
-                cin >> id;
-                lib.deleteBook(id);
-                break;
-            }
-            case 5: {
-                int id;
-                cout << "Enter Book ID to issue: ";
-                cin >> id;
-                lib.issueBook(id);
-                break;
-            }
-            case 6: {
-                int id;
-                cout << "Enter Book ID to return: ";
-                cin >> id;
-                lib.returnBook(id);
-                break;
-            }
-            case 0:
-                lib.saveBooksToFile();
-                cout << "✅ Library saved. Admin logged out.\n";
-                break;
-            default:
-                cout << "❌ Invalid choice. Try again.\n";
-        }
-
-    } while (choice != 0);
-}
 
 // =================== Student Menu ===================
 void showStudentMenu(const string& studentID, Library& lib) {
@@ -167,6 +98,10 @@ int main() {
             case 3: {
                 Student s;
                 s.registerStudent();
+                break;
+            }
+            case 4:{
+                registerNewAdmin();
                 break;
             }
             default:

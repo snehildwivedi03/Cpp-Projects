@@ -16,7 +16,7 @@ void recordIssueBook(const std::string& studentId, int bookID) {
     // Get current date
     time_t now = time(0);
     tm* ltm = localtime(&now);
-    char date[11];
+    char date[20];
     snprintf(date, sizeof(date), "%04d-%02d-%02d", 1900 + ltm->tm_year, 1 + ltm->tm_mon, ltm->tm_mday);
 
     file << studentId << "," << bookID << "," << date << "\n";
