@@ -155,3 +155,27 @@ void registerNewAdmin() {
     file.close();
     cout << "✅ Admin registered successfully!\n";
 }
+
+bool authenticateAdmin(const string& adminID, const string& password) {
+    ifstream file("data/admins.txt");
+    if (!file) {
+        cout << "❌ Failed to open admins.txt\n";
+        return false;
+    }
+
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string storedID, storedPass;
+        getline(ss, storedID, ',');
+        getline(ss, storedPass, ',');
+
+        if (storedID == adminID && storedPass == password) {
+            file.close();
+            return true;
+        }
+    }
+
+    file.close();
+    return false;
+}
