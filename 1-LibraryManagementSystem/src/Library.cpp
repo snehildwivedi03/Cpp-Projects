@@ -106,6 +106,8 @@ void Library::returnBook(int id){
   } else {
     cout << "❌ Book with ID " << id << " not found!\n";
   }
+  saveBooksToFile(); // Save updated quantity
+
 }
 
 //Search for a book by ID
