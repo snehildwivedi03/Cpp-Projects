@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <unistd.h>     // For getcwd()
-#include <limits.h>     // For PATH_MAX
-#include <cstdlib>      // For getenv()
+#include <unistd.h>     
+#include <limits.h>   
+#include <cstdlib>     
 
 using namespace std;
 
