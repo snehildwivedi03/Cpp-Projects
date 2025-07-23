@@ -11,7 +11,7 @@ using namespace std;
 // Show welcome screen
 void showWelcome() {
     cout << "\n";
-    cout << "🫧 ~ Welcome to blob-shell ~\n";
+    cout << "🫧 ~ Welcome to BLOB-shell ~\n";
     cout << "   Lightweight Unix Shell in C++\n";
     cout << "   Type 'exit' to quit.\n";
     cout << "--------------------------------\n\n";
@@ -49,6 +49,17 @@ int main() {
          cout << "\n";
         
     }
+    auto tokens = tokenizeInput(input);
+auto command = parseCommand(tokens);
+
+// Debug print
+cout << "Command: " << command.cmd << "\nArgs: ";
+for (const auto& arg : command.args) cout << arg << " ";
+cout << "\nInput: " << command.inputFile;
+cout << "\nOutput: " << command.outputFile;
+cout << "\nAppend: " << (command.append ? "yes" : "no");
+cout << "\nBackground: " << (command.background ? "yes" : "no") << "\n";
+
 
     return 0;
 }
