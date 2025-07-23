@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
-#include <unistd.h>     
-#include <limits.h>   
-#include <cstdlib>   
-#include <vector>
+#include <unistd.h>
+#include <limits.h>
 #include "Parser.h"
+#include "Executor.h"
+#include <readline/readline.h>
+#include <readline/history.h>
 
 using namespace std;
 
-// Show welcome screen
 void showWelcome() {
     cout << "\n";
     cout << "🫧 ~ Welcome to BLOB-shell ~\n";
@@ -17,7 +17,6 @@ void showWelcome() {
     cout << "--------------------------------\n\n";
 }
 
-// Show the prompt: blob:/current/path$
 void showPrompt() {
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
@@ -27,39 +26,33 @@ void showPrompt() {
 int main() {
     showWelcome();
 
-    string input;
     while (true) {
-        showPrompt();
+        // Display prompt
+        char cwd[PATH_MAX];
+        getcwd(cwd, sizeof(cwd));
+        string prompt = "blob:" + string(cwd) + "$ ";
 
-        getline(cin, input);
+        // Read user input
+        char* inputCStr = readline(prompt.c_str());
+        if (!inputCStr) break; // Ctrl+D
+        if (*inputCStr == '\0') {
+            free(inputCStr);
+            continue;
+        }
 
-        if (input.empty()) continue;
+        add_history(inputCStr); // Save to history
+
+        string input(inputCStr);
+        free(inputCStr);
 
         if (input == "exit") {
             cout << "👋 Exiting blob-shell...\n";
             break;
         }
 
-        cout << "[placeholder] You entered: " << input << "\n";
-         auto tokens = tokenizeInput(input);
-         cout<<"[Parsed Tokens]: ";
-         for(const auto& token : tokens) {
-             cout <<"[ "<< token <<" ]";
-         }
-         cout << "\n";
-        
+        Pipeline pipeline = parsePipeline(input);
+        executePipeline(pipeline);
     }
-    auto tokens = tokenizeInput(input);
-auto command = parseCommand(tokens);
-
-// Debug print
-cout << "Command: " << command.cmd << "\nArgs: ";
-for (const auto& arg : command.args) cout << arg << " ";
-cout << "\nInput: " << command.inputFile;
-cout << "\nOutput: " << command.outputFile;
-cout << "\nAppend: " << (command.append ? "yes" : "no");
-cout << "\nBackground: " << (command.background ? "yes" : "no") << "\n";
-
 
     return 0;
 }
