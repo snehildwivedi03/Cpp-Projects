@@ -130,3 +130,9 @@ std::vector<Command> parsePipeline(const std::vector<std::string> &tokens) {
 
     return pipeline;
 }
+Pipeline parsePipeline(const std::string& input) {
+    std::vector<std::string> tokens = tokenizeInput(input);
+    std::vector<Command> commands = parsePipeline(tokens);
+    return { commands };
+}
+
