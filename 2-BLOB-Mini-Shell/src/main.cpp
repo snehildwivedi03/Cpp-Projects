@@ -2,7 +2,9 @@
 #include <string>
 #include <unistd.h>     
 #include <limits.h>   
-#include <cstdlib>     
+#include <cstdlib>   
+#include <vector>
+#include "Parser.h"
 
 using namespace std;
 
@@ -38,8 +40,14 @@ int main() {
             break;
         }
 
-        // Later we will call parser and executor here
         cout << "[placeholder] You entered: " << input << "\n";
+         auto tokens = tokenizeInput(input);
+         cout<<"[Parsed Tokens]: ";
+         for(const auto& token : tokens) {
+             cout <<"[ "<< token <<" ]";
+         }
+         cout << "\n";
+        
     }
 
     return 0;
