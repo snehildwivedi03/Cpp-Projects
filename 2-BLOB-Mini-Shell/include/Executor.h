@@ -2,7 +2,7 @@
 #define EXECUTOR_H
 #include "Parser.h"
 
-void exeecutePipeline(const Pipeline& pipeline);
+void executePipeline(const Pipeline& pipeline);
 
 
 #endif
