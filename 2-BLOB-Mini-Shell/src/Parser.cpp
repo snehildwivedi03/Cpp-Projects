@@ -3,6 +3,32 @@
 #include <string>
 #include <cctype>
 #include<iostream>
+#include <sstream>
+
+std::vector<std::string> tokenize(const std::string& input){
+  std::vector<std::string> tokens;
+    std::istringstream iss(input);
+    std::string token;
+    
+
+    while (iss >> token) {
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
+std::vector<std::string> splitByPipe(const std::string& input) {
+    std::vector<std::string> parts;
+    std::string temp;
+    std::istringstream iss(input);
+
+    while (std::getline(iss, temp, '|')) {
+        parts.push_back(temp);
+    }
+
+    return parts;
+}
+
 
 std::vector<std::string> tokenizeInput(const std::string &input) {
     std::vector<std::string> tokens;
@@ -46,6 +72,7 @@ std::vector<std::string> tokenizeInput(const std::string &input) {
 
     return tokens;
 }
+
 Command parseCommand(const std::vector<std::string> &tokens) {
     Command cmd;
     bool expectInput = false, expectOutput = false;
@@ -58,6 +85,11 @@ Command parseCommand(const std::vector<std::string> &tokens) {
         } else if (tok == ">" || tok == ">>") {
             expectOutput = true;
             cmd.append = (tok == ">>");
+
+            if (i + 1 >= tokens.size()) {
+                std::cerr << "Syntax error: expected output file after " << tok << "\n";
+                break;
+            }
         } else if (tok == "&") {
             cmd.background = true;
         } else if (expectInput) {
@@ -75,4 +107,26 @@ Command parseCommand(const std::vector<std::string> &tokens) {
     }
 
     return cmd;
+}
+std::vector<Command> parsePipeline(const std::vector<std::string> &tokens) {
+    std::vector<Command> pipeline;
+    std::vector<std::string> currentCmdTokens;
+
+    for (const auto &tok : tokens) {
+        if (tok == "|") {
+            if (!currentCmdTokens.empty()) {
+                pipeline.push_back(parseCommand(currentCmdTokens));
+                currentCmdTokens.clear();
+            }
+        } else {
+            currentCmdTokens.push_back(tok);
+        }
+    }
+
+    // Add the last command after the final |
+    if (!currentCmdTokens.empty()) {
+        pipeline.push_back(parseCommand(currentCmdTokens));
+    }
+
+    return pipeline;
 }

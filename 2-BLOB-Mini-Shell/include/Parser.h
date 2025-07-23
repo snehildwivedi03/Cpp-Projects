@@ -1,26 +1,29 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
 
-struct Command{
-std::string cmd;
-std::vector<std::string> args;    // arguments (including cmd)
-    std::string inputFile;            // if '<' used
-    std::string outputFile;           // if '>' or '>>' used
-    bool append = false;              // >> vs >
+struct Command {
+    std::string cmd;
+    std::vector<std::string> args;
+    std::string inputFile;
+    std::string outputFile;
+    bool append = false;
     bool background = false;
 };
 
 struct Pipeline {
-  std::vector<Command> commands; // List of commands in the pipeline
-
+    std::vector<Command> commands;
 };
-Pipeline parsePipeline(const std::vector<std::string>& tokens);
 
-
+// Tokenizes raw user input like: echo "hello" > file.txt
 std::vector<std::string> tokenizeInput(const std::string& input);
+
+// Parses a single command from tokenized input
 Command parseCommand(const std::vector<std::string>& tokens);
 
-#endif
+// Parses full pipeline from raw input (handles pipes, etc.)
+Pipeline parsePipeline(const std::string& input);
+
+#endif // PARSER_H
