@@ -77,3 +77,11 @@ make run
 # 4. Clean build files (optional)
 make clean
 ```
+
+## 🙋 Author
+
+**Snehil Dwivedi**  
+B.Tech CSE | System Programming Enthusiast | Full-Stack Developer
+
+- 🔗 [LinkedIn](https://www.linkedin.com/in/snehil-dwivedi)
+- 💻 [GitHub](https://github.com/snehil-dev)
