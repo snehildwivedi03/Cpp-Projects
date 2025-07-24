@@ -1,3 +1,9 @@
+<!-- adding banner image -->
+<p align="center">
+ <p align="center">
+  <img src="./images/projects.gif" alt="Snehil Dwivedi Banner" style="width: 100%; max-height: 300px; object-fit: cover;" />
+</p>
+
 # 💡 C++ Real World Projects Showcase
 
 Welcome to the **C++ Real World Projects Showcase**—a personal endeavor to explore and demonstrate the incredible capabilities of C++ through real-world applications and problem-solving projects.
