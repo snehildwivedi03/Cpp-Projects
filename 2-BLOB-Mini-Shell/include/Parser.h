@@ -7,11 +7,12 @@
 struct Command {
     std::string cmd;
     std::vector<std::string> args;
-    std::string inputFile;
-    std::string outputFile;
-    bool append = false;
+    std::string inputRedirect;   // For '<'
+    std::string outputRedirect;  // For '>'
+    bool appendOutput = false;   // For '>>'
     bool background = false;
 };
+
 
 struct Pipeline {
     std::vector<Command> commands;
