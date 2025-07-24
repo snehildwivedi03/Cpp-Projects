@@ -89,5 +89,5 @@ make clean
 **Snehil Dwivedi**  
 B.Tech CSE | System Programming Enthusiast | Full-Stack Developer
 
-- 🔗 [LinkedIn](https://www.linkedin.com/in/snehil-dwivedi)
-- 💻 [GitHub](https://github.com/snehil-dev)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/snehil-dwivedi-/)
+- 💻 [GitHub](https://github.com/snehildwivedi03/Cpp-Projects/tree/main/2-BLOB-Mini-Shell)
