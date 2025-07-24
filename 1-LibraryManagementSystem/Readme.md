@@ -1,3 +1,9 @@
+<!-- adding banner image -->
+<p align="center">
+ <p align="center">
+  <img src="../images/lms.gif" alt="Snehil Dwivedi Banner" style="width: 100%; max-height: 300px; object-fit: cover;" />
+</p>
+
 # 📚 Library Management System – C++ Console App
 
 A clean, modular, and menu-driven **Library Management System** built using modern **C++17**, featuring complete **OOP design**, **file handling**, **STL**, and a simple CLI user interface. This project is perfect for beginners & intermediate C++ developers looking to build real-world console applications and strengthen their backend logic.

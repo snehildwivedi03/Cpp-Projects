@@ -1,9 +1,3 @@
-<!-- adding banner image -->
-<p align="center">
- <p align="center">
-  <img src="../images/lms.gif" alt="Snehil Dwivedi Banner" style="width: 100%; max-height: 300px; object-fit: cover;" />
-</p>
-
 # 🐚 BLOB Shell — A Custom Unix-Like Command Line Shell
 
 BLOB Shell (Binary Line Operating Bash) is a lightweight and fully functional command-line shell implemented in **C++**. It mimics the behavior of popular Unix shells like `bash` or `zsh` with support for built-in commands, redirection, background processes, and pipelines.
