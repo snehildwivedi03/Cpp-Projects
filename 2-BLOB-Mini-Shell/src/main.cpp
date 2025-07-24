@@ -8,6 +8,7 @@
 #include <cstring>
 #include <sys/wait.h>
 #include <cstdlib>
+#include <filesystem>
 #include <readline/readline.h>
 #include <readline/history.h>
 
@@ -45,6 +46,8 @@ void printPrompt() {
 
 int main() {
     showWelcome();
+std::string historyPath = std::string(getenv("HOME")) + "/.blob_history";
+read_history(historyPath.c_str());
 
     while (true) {
         printPrompt();
@@ -82,6 +85,7 @@ int main() {
         else
             executePipeline(pipeline);
     }
+write_history(historyPath.c_str());
 
     return 0;
 }
