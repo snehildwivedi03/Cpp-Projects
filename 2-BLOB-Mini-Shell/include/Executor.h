@@ -3,6 +3,6 @@
 #include "Parser.h"
 
 void executePipeline(const Pipeline& pipeline);
-void executeSingleCommand(const Command& cmd);
+void executeSingleCommand(const Command& cmd, bool isBackground = false);
 
 #endif

@@ -1,4 +1,5 @@
 #include "Executor.h"
+#include "Parser.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/wait.h>
@@ -6,13 +7,13 @@
 #include <vector>
 #include <cstring>
 
-void executeSingleCommand(const Command& cmd) {
+void executeSingleCommand(const Command& cmd, bool isBackground = false) {
     pid_t pid = fork();
 
     if (pid == 0) {
-        // Child process
+        // ---- Child Process ----
 
-        // Input redirection
+        // Input Redirection
         if (!cmd.inputRedirect.empty()) {
             int in = open(cmd.inputRedirect.c_str(), O_RDONLY);
             if (in < 0) {
@@ -23,7 +24,7 @@ void executeSingleCommand(const Command& cmd) {
             close(in);
         }
 
-        // Output redirection
+        // Output Redirection
         if (!cmd.outputRedirect.empty()) {
             int out;
             if (cmd.appendOutput) {
@@ -41,29 +42,30 @@ void executeSingleCommand(const Command& cmd) {
             close(out);
         }
 
-        // Convert args to char* array for execvp
-        std::vector<char*> argv;
-        for (const auto& arg : cmd.args) {
-            argv.push_back(const_cast<char*>(arg.c_str()));
+        // Convert args to char*[]
+        std::vector<char*> args;
+        for (const std::string& arg : cmd.args) {
+            args.push_back(const_cast<char*>(arg.c_str()));
         }
-        argv.push_back(nullptr);
+        args.push_back(nullptr);
 
-        execvp(cmd.cmd.c_str(), argv.data());
-        perror("execvp failed");
+        execvp(cmd.cmd.c_str(), args.data());
+        perror("exec failed");
         exit(EXIT_FAILURE);
-    }
-    else if (pid > 0) {
-        // Parent process
-        if (!cmd.background) {
-            waitpid(pid, nullptr, 0);
+
+    } else if (pid > 0) {
+        // ---- Parent Process ----
+        if (!isBackground) {
+            waitpid(pid, nullptr, 0);  // Foreground
         } else {
-            std::cout << "Running in background with PID " << pid << std::endl;
+            std::cout << "[background pid " << pid << "]" << std::endl;
         }
-    }
-    else {
+    } else {
+        // ---- Fork Failed ----
         perror("fork failed");
     }
 }
+
 
 void executePipeline(const Pipeline& pipeline) {
     const std::vector<Command>& commands = pipeline.commands;

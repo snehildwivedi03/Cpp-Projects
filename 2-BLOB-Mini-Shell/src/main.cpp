@@ -94,6 +94,14 @@ int main() {
         } else {
             executePipeline(pipeline);
         }
+        Pipeline pipeline = parsePipeline(input);
+if (pipeline.commands.empty()) continue;
+
+if (pipeline.commands.size() == 1)
+    executeSingleCommand(pipeline.commands[0], pipeline.isBackground);
+else
+    executePipeline(pipeline);  // Later: handle bg pipeline if needed
+
     }
 
     // Save history on exit

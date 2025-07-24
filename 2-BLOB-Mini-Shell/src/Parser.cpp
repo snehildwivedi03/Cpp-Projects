@@ -136,6 +136,11 @@ std::vector<Command> parsePipeline(const std::vector<std::string> &tokens) {
 Pipeline parsePipeline(const std::string& input) {
     std::vector<std::string> tokens = tokenizeInput(input);
     std::vector<Command> commands = parsePipeline(tokens);
+    Pipeline result{ commands, false };
+    if(!tokens.empty() && tokens.back()=="&"){
+result.isBackground = true;
+tokens.pop_back();
+    }
     return { commands };
 }
 

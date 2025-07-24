@@ -15,6 +15,7 @@ struct Command {
 
 struct Pipeline {
     std::vector<Command> commands;
+    bool isBackground = false;
 };
 
 // Tokenizes raw user input like: echo "hello" > file.txt
