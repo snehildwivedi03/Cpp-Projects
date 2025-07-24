@@ -21,6 +21,7 @@ void showPrompt() {
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
     cout << "blob:" << cwd << "$ ";
+    
 }
 
 int main() {
@@ -39,6 +40,7 @@ int main() {
             free(inputCStr);
             continue;
         }
+        
 
         add_history(inputCStr); // Save to history
 

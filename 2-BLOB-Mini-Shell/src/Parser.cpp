@@ -80,25 +80,27 @@ Command parseCommand(const std::vector<std::string> &tokens) {
     for (size_t i = 0; i < tokens.size(); ++i) {
         const std::string &tok = tokens[i];
 
-        if (tok == "<") {
+        // 🛠️ First handle redirection targets
+        if (expectInput) {
+            cmd.inputRedirect = tok;
+            expectInput = false;
+        } else if (expectOutput) {
+            cmd.outputRedirect = tok;
+            expectOutput = false;
+        }
+        // 🧭 Now handle redirection operators
+        else if (tok == "<") {
             expectInput = true;
         } else if (tok == ">" || tok == ">>") {
             expectOutput = true;
-            cmd.append = (tok == ">>");
-
-            if (i + 1 >= tokens.size()) {
-                std::cerr << "Syntax error: expected output file after " << tok << "\n";
-                break;
-            }
-        } else if (tok == "&") {
+            cmd.appendOutput = (tok == ">>");
+        }
+        // 🧿 Background process
+        else if (tok == "&") {
             cmd.background = true;
-        } else if (expectInput) {
-            cmd.inputFile = tok;
-            expectInput = false;
-        } else if (expectOutput) {
-            cmd.outputFile = tok;
-            expectOutput = false;
-        } else {
+        }
+        // 🧩 Regular command/argument
+        else {
             if (cmd.cmd.empty()) {
                 cmd.cmd = tok;
             }
@@ -108,6 +110,7 @@ Command parseCommand(const std::vector<std::string> &tokens) {
 
     return cmd;
 }
+
 std::vector<Command> parsePipeline(const std::vector<std::string> &tokens) {
     std::vector<Command> pipeline;
     std::vector<std::string> currentCmdTokens;
