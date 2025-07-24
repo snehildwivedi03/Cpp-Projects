@@ -54,55 +54,41 @@ int main() {
     std::string historyPath = std::string(getenv("HOME")) + "/.blob_history";
     read_history(historyPath.c_str());
 
-    while (true) {
-        // Show prompt and read input using readline
-        char* inputCStr = readline(getPrompt().c_str());
-        if (!inputCStr) break; // Handle Ctrl+D to exit
+   while (true) {
+    char* inputCStr = readline(getPrompt().c_str());
+    if (!inputCStr) break;
 
-        std::string input(inputCStr);
-        free(inputCStr);
+    std::string input(inputCStr);
+    free(inputCStr);
 
-        if (input.empty()) continue;
+    if (input.empty()) continue;
 
-        // Save input to history
-        add_history(input.c_str());
+    add_history(input.c_str());
 
-        // Exit command
-        if (input == "exit") break;
+    if (input == "exit") break;
 
-        // Parse the command into pipeline
-        Pipeline pipeline = parsePipeline(input);
-        if (pipeline.commands.empty()) continue;
+    Pipeline pipeline = parsePipeline(input);
+    if (pipeline.commands.empty()) continue;
 
-        const Command& cmd = pipeline.commands[0];
+    const Command& cmd = pipeline.commands[0];
 
-        // Handle 'cd' as a built-in command
-        if (cmd.cmd == "cd") {
-            if (cmd.args.size() > 1) {
-                if (chdir(cmd.args[1].c_str()) != 0) {
-                    perror("cd failed");
-                }
-            } else {
-                std::cerr << "cd: missing argument\n";
+    if (cmd.cmd == "cd") {
+        if (cmd.args.size() > 1) {
+            if (chdir(cmd.args[1].c_str()) != 0) {
+                perror("cd failed");
             }
-            continue;
-        }
-
-        // Execute command(s)
-        if (pipeline.commands.size() == 1) {
-            executeSingleCommand(pipeline.commands[0]);
         } else {
-            executePipeline(pipeline);
+            std::cerr << "cd: missing argument\n";
         }
-        Pipeline pipeline = parsePipeline(input);
-if (pipeline.commands.empty()) continue;
-
-if (pipeline.commands.size() == 1)
-    executeSingleCommand(pipeline.commands[0], pipeline.isBackground);
-else
-    executePipeline(pipeline);  // Later: handle bg pipeline if needed
-
+        continue;
     }
+
+    if (pipeline.commands.size() == 1) {
+        executeSingleCommand(pipeline.commands[0], pipeline.isBackground);
+    } else {
+        executePipeline(pipeline);
+    }
+}
 
     // Save history on exit
     write_history(historyPath.c_str());
