@@ -90,33 +90,6 @@ I am continuously working on expanding this showcase with new and exciting C++ p
 
 ---
 
-### 🛠️ 2. Mini Shell / Command Line Interpreter
-
-**Why this?**  
-This project demonstrates a deep understanding of system-level programming, process management, and interaction with the operating system.
-
-**Concepts Used:**
-
-- System calls (`fork`, `exec`, `wait`)
-- String manipulation
-- Memory management
-- Pointers
-- Command parsing
-
-**Features:**
-
-- Handle basic shell commands (`cd`, `ls`, `mkdir`, `rm`, `cat`, etc.)
-- Command execution and argument parsing
-- Error handling for invalid commands
-
-**Bonus:**
-
-- Implement piping (`|`) for command chaining
-- Add input/output redirection (`>`, `<`, `>>`)
-- Support background processes
-
----
-
 ### 📊 3. DSA Visualizer (Console-based or SFML/SDL-based)
 
 **Why this?**  
