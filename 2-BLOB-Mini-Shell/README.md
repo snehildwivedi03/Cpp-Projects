@@ -19,6 +19,23 @@ This project was built from scratch to deepen understanding of **OS-level system
 
 ---
 
+## 📷 Preview
+
+```bash
+snehil-dev@DEV-MODE:~/C++ Projects/BLOB-Shell$ ls -la | grep ".cpp" > results.txt
+snehil-dev@DEV-MODE:~/C++ Projects/BLOB-Shell$ cat results.txt
+ ## 🧠 What I Learned
+
+- Forking and executing child processes (`fork`, `execvp`)
+- Handling I/O redirection and file descriptors (`dup2`)
+- Creating pipelines with inter-process communication (IPC) using `pipe`
+- Managing background tasks and signals (`SIGCHLD`)
+- Parsing complex shell syntax
+- Organizing modular C++ project structure (header/source separation)
+- Implementing command prompt behavior via `termios`
+
+```
+
 ## Project Structure
 
 BLOB-Shell/
@@ -55,10 +72,22 @@ git clone https://github.com/snehil-dev/BLOB-Shell.git
 cd BLOB-Shell
 make
 
-
-
-
-
-
-
 ```
+
+## 📈 Future Improvements
+
+-Support for jobs, fg, bg built-ins
+
+-Support for scripting via .blobrc or script files
+
+-Signal handling for Ctrl+C, Ctrl+Z, etc.
+
+-Syntax highlighting
+
+## 🙋 Author
+
+**Snehil Dwivedi**  
+B.Tech CSE | System Programming Enthusiast | Full-Stack Developer
+
+- 🔗 [LinkedIn](https://www.linkedin.com/in/snehil-dwivedi)
+- 💻 [GitHub](https://github.com/snehil-dev)
