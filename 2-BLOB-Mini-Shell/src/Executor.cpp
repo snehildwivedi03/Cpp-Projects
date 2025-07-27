@@ -153,7 +153,6 @@ void executePipeline(const Pipeline& pipeline) {
         }
     }
 
-    // Wait for all children unless last is background
     if (!commands.back().background) {
         for (size_t i = 0; i < n; ++i) {
             wait(nullptr);
