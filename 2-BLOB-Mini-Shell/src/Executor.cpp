@@ -11,7 +11,7 @@ void executeSingleCommand(const Command& cmd, bool isBackground = false) {
     pid_t pid = fork();
 
     if (pid == 0) {
-        // ---- Child Process ----
+        //Child Process
 
         // Input Redirection
         if (!cmd.inputRedirect.empty()) {
