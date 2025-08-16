@@ -1,10 +1,15 @@
 #pragma once
 #include "Visualizer.hpp"
 #include <vector>
+#include <string>
+#include <SFML/Graphics.hpp>
 
 class SortingVisualizer : public Visualizer {
 public:
-    SortingVisualizer(unsigned int numBars, unsigned int windowWidth, unsigned int windowHeight);
+    SortingVisualizer(unsigned int numBars,
+                      unsigned int windowWidth,
+                      unsigned int windowHeight,
+                      const std::string& selectedAlgorithm);
 
     void update(float dt) override;
     void draw(sf::RenderWindow& window) override;
@@ -15,7 +20,7 @@ private:
     std::vector<sf::RectangleShape> bars;
     unsigned int winWidth, winHeight;
 
-    // Bubble Sort tracking
+    // Track sorting progress
     unsigned int i = 0, j = 0;
     bool sorting = true;
     float speed = 0.05f; // seconds per step
@@ -23,4 +28,7 @@ private:
 
     void swapBars(unsigned int a, unsigned int b);
     void resetBars();
+
+    // Store chosen algorithm
+    std::string algorithm;
 };

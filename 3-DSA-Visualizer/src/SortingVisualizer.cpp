@@ -3,8 +3,11 @@
 #include <ctime>
 #include <algorithm>
 
-SortingVisualizer::SortingVisualizer(unsigned int numBars, unsigned int windowWidth, unsigned int windowHeight)
-    : winWidth(windowWidth), winHeight(windowHeight) 
+SortingVisualizer::SortingVisualizer(unsigned int numBars,
+                                     unsigned int windowWidth,
+                                     unsigned int windowHeight,
+                                     const std::string& selectedAlgorithm)
+    : winWidth(windowWidth), winHeight(windowHeight), algorithm(selectedAlgorithm)
 {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
     values.resize(numBars);
