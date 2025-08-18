@@ -31,7 +31,7 @@ void SettingsScreen::handleInput(sf::Event event) {
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::Up) {
             numBars += 5;
-            if (numBars > 200) numBars = 200;
+            if (numBars > 400) numBars = 400;
         }
         if (event.key.code == sf::Keyboard::Down) {
             numBars -= 5;

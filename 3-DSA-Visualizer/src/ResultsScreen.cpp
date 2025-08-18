@@ -35,7 +35,7 @@ ResultsScreen::ResultsScreen() {
     complexityText.setPosition(100, 240);
 
     instruction.setFont(font);
-    instruction.setString("Press ENTER to return to menu.");
+    instruction.setString("Press ENTER or click here to return to menu");
     instruction.setCharacterSize(20);
     instruction.setFillColor(sf::Color(200, 200, 200));
     instruction.setPosition(100, 300);
@@ -46,14 +46,22 @@ void ResultsScreen::setResults(const std::string& algorithm, int numBars, double
     barsText.setString("Number of Bars: " + std::to_string(numBars));
 
     std::ostringstream oss;
-    oss << std::fixed << std::setprecision(3) << timeMs << " ms";
+    oss << std::fixed << std::setprecision(3) << timeMs << "s";
     timeText.setString("Execution Time: " + oss.str());
 
     complexityText.setString("Time Complexity: " + getComplexity(algorithm));
 }
 
-void ResultsScreen::handleInput(sf::Event event) {
-    // No special handling yet
+void ResultsScreen::handleInput(sf::Event event, bool& backToMenu, sf::RenderWindow& window) {
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
+        backToMenu = true;
+    }
+    if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+        sf::Vector2i mp = sf::Mouse::getPosition(window);
+        if (instruction.getGlobalBounds().contains(static_cast<float>(mp.x), static_cast<float>(mp.y))) {
+            backToMenu = true;
+        }
+    }
 }
 
 void ResultsScreen::draw(sf::RenderWindow& window) {
@@ -66,10 +74,10 @@ void ResultsScreen::draw(sf::RenderWindow& window) {
 }
 
 std::string ResultsScreen::getComplexity(const std::string& algorithm) {
-    if (algorithm == "Bubble Sort") return "O(n^2)";
-    if (algorithm == "Selection Sort") return "O(n^2)";
-    if (algorithm == "Insertion Sort") return "O(n^2)";
-    if (algorithm == "Merge Sort") return "O(n log n)";
-    if (algorithm == "Quick Sort") return "O(n log n)";
+    if (algorithm == "Bubble Sort")   return "O(n^2)";
+    if (algorithm == "Selection Sort")return "O(n^2)";
+    if (algorithm == "Insertion Sort")return "O(n^2)";
+    if (algorithm == "Merge Sort")    return "O(n log n)";
+    if (algorithm == "Quick Sort")    return "O(n log n) average";
     return "Unknown";
 }

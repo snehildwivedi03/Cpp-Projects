@@ -18,7 +18,7 @@ private:
 
 public:
     Menu();
-    void handleInput(sf::Event event);
+    void handleInput(sf::Event event, sf::RenderWindow& window);
     void draw(sf::RenderWindow &window);
 
     std::string getSelectedAlgorithm() const;

@@ -3,12 +3,11 @@
 #include <chrono>
 #include "SortingVisualizer.hpp"
 #include "Menu.h"
-#include "SettingsScreen.hpp"  // new header for bar selection
-#include "ResultsScreen.hpp"   // new header for showing results
+#include "SettingsScreen.hpp"
+#include "ResultsScreen.hpp"
 
 enum class AppState {
     MENU,
-    SETTINGS,
     VISUALIZING,
     RESULTS
 };
@@ -27,13 +26,11 @@ int main() {
     AppState appState = AppState::MENU;
 
     Menu menu;
-    SettingsScreen settingsScreen;
     ResultsScreen resultsScreen;
 
     std::string selectedAlgorithm;
     int numBars = 50;
 
-    bool paused = false;
     sf::Clock deltaClock;
     std::chrono::time_point<std::chrono::high_resolution_clock> startTime, endTime;
 
@@ -45,47 +42,44 @@ int main() {
             if (event.type == sf::Event::Closed) window.close();
 
             switch (appState) {
-                case AppState::MENU:
-                    menu.handleInput(event);
-                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                        selectedAlgorithm = menu.getSelectedAlgorithm();
-                        appState = AppState::SETTINGS;
-                    }
-                    break;
+                case AppState::MENU: {
+                    menu.handleInput(event, window);
 
-                case AppState::SETTINGS:
-                    settingsScreen.handleInput(event);
-                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                        numBars = settingsScreen.getNumBars();
+                    // Start on Enter or click "Start Visualization"
+                    bool enterPressed = (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter);
+                    bool mouseStart   = (event.type == sf::Event::MouseButtonPressed &&
+                                         event.mouseButton.button == sf::Mouse::Left &&
+                                         menu.isStartSelected());
+
+                    if (enterPressed || mouseStart) {
+                        selectedAlgorithm = menu.getSelectedAlgorithm();
+                        numBars = menu.getNumBars();
+
+                        delete sortingVis;
                         sortingVis = new SortingVisualizer(numBars, WIDTH, HEIGHT, selectedAlgorithm);
+
                         startTime = std::chrono::high_resolution_clock::now();
                         appState = AppState::VISUALIZING;
                     }
-                    break;
+                } break;
 
-                case AppState::VISUALIZING:
-                    sortingVis->handleEvent(event);
-                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                        endTime = std::chrono::high_resolution_clock::now();
-                        double duration = std::chrono::duration<double, std::milli>(endTime - startTime).count();
-                        resultsScreen.setResults(selectedAlgorithm, numBars, duration);
-                        delete sortingVis;
-                        sortingVis = nullptr;
-                        appState = AppState::RESULTS;
+                case AppState::VISUALIZING: {
+                    if (sortingVis) {
+                        sortingVis->handleEvent(event);
                     }
-                    break;
+                } break;
 
-                case AppState::RESULTS:
-                    resultsScreen.handleInput(event);
-                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                        appState = AppState::MENU; // restart
+                case AppState::RESULTS: {
+                    bool back = false;
+                    resultsScreen.handleInput(event, back, window);
+                    if (back) {
+                        appState = AppState::MENU;
                     }
-                    break;
+                } break;
             }
         }
 
         float dt = deltaClock.restart().asSeconds();
-        if (paused) dt = 0.f;
 
         window.clear(sf::Color(20, 24, 32));
 
@@ -94,13 +88,23 @@ int main() {
                 menu.draw(window);
                 break;
 
-            case AppState::SETTINGS:
-                settingsScreen.draw(window);
-                break;
-
             case AppState::VISUALIZING:
-                sortingVis->update(dt);
-                sortingVis->draw(window);
+                if (sortingVis) {
+                    sortingVis->update(dt);
+                    sortingVis->draw(window);
+
+                    if (sortingVis->isFinished()) {
+                        endTime = std::chrono::high_resolution_clock::now();
+                  double duration = std::chrono::duration<double>(endTime - startTime).count();
+
+
+                        resultsScreen.setResults(selectedAlgorithm, numBars, duration);
+
+                        delete sortingVis;
+                        sortingVis = nullptr;
+                        appState = AppState::RESULTS;
+                    }
+                }
                 break;
 
             case AppState::RESULTS:
@@ -111,6 +115,6 @@ int main() {
         window.display();
     }
 
-    if (sortingVis) delete sortingVis;
+    delete sortingVis;
     return 0;
 }

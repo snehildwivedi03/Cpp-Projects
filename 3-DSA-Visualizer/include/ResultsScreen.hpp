@@ -1,6 +1,4 @@
-#ifndef RESULTS_SCREEN_HPP
-#define RESULTS_SCREEN_HPP
-
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
 
@@ -9,7 +7,7 @@ public:
     ResultsScreen();
 
     void setResults(const std::string& algorithm, int numBars, double timeMs);
-    void handleInput(sf::Event event);
+    void handleInput(sf::Event event, bool& backToMenu, sf::RenderWindow& window);
     void draw(sf::RenderWindow& window);
 
 private:
@@ -23,5 +21,3 @@ private:
 
     std::string getComplexity(const std::string& algorithm);
 };
-
-#endif

@@ -15,20 +15,56 @@ public:
     void draw(sf::RenderWindow& window) override;
     void handleEvent(const sf::Event& event) override;
 
+    bool isFinished() const { return finished; }
+
 private:
-    std::vector<float> values;
+    enum class StepType { Compare, Swap, Overwrite };
+
+    struct Step {
+        StepType type;
+        int a;
+        int b;
+        float value;  // used for Overwrite
+    };
+
+    std::vector<float> values;              // current visual values
+    std::vector<float> originalValues;      // initial randomized values (for step generation)
     std::vector<sf::RectangleShape> bars;
+
+    std::vector<Step> steps; // precomputed steps for the chosen algorithm
+    size_t stepIndex = 0;
+
     unsigned int winWidth, winHeight;
-
-    // Track sorting progress
-    unsigned int i = 0, j = 0;
-    bool sorting = true;
-    float speed = 0.05f; // seconds per step
-    float timer = 0.f;
-
-    void swapBars(unsigned int a, unsigned int b);
-    void resetBars();
-
-    // Store chosen algorithm
     std::string algorithm;
+
+    // timing
+    float speed = 0.01f; // seconds per step
+    float timer = 0.f;
+    bool finished = false;
+
+    // rendering helpers
+    int highlightA = -1, highlightB = -1; // indices to color for compare/swap
+
+    void resetBars();
+    void resizeBars();
+
+    // step application
+    void applyStep(const Step& s);
+
+    // bar updates
+    void updateBarAt(int idx);
+
+    // step generators (operate on a working copy)
+    void generateSteps();
+
+    void genBubble(std::vector<float> arr);
+    void genSelection(std::vector<float> arr);
+    void genInsertion(std::vector<float> arr);
+    void genMerge(std::vector<float> arr);
+    void mergeRec(std::vector<float>& arr, int l, int r);
+    void mergeDo(std::vector<float>& arr, int l, int m, int r);
+
+    void genQuick(std::vector<float> arr);
+    void quickRec(std::vector<float>& arr, int l, int r);
+    int  quickPartition(std::vector<float>& arr, int l, int r);
 };
